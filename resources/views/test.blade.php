@@ -1,12 +1,14 @@
-<html>
-    <head>
-        //---HTML Head Part
-    </head>
-    <body>
-      
-        @foreach ($noms as $nom)
-            {{ $nom->name }}
+@extends('layouts.app')
+@section('content')
+
+    <div>
+
+        @foreach ($produits as $key => $data)
+            {{  $data->nom }}
+            {{  $data->type }}
         @endforeach
         @stop
-    </body>
-</html>
+      
+    </div>
+
+@endsection

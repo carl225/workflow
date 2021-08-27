@@ -16,7 +16,7 @@ class Produit extends Migration
         Schema::create('produit', function (Blueprint $table) {
 
             $table->increments('id');    //Predefined ID
-            $table->string('nom');      //nom
+            $table->file('nom');      //nom
             $table->string('type');      //type
             $table->timestamps();        //Predefined Timestamps
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Produit;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB; 
 
 class ControllerProduit extends Controller
 {
@@ -26,9 +27,16 @@ class ControllerProduit extends Controller
             $produit = new produit;
             $produit->nom = $request['nom'];
             $produit->type = $request['type'];
+            $request->file('name')->store('profile');
             $produit->save();
             return view('test')->with('noms',"success");
         
     } 
+    public function getProduit()
+    {
+        $produit = DB::table('produit')->get();
+        
+        return view('test')->with('produits',$produit);
+    }
     
 }
