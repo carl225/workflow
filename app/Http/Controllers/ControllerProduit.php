@@ -27,7 +27,7 @@ class ControllerProduit extends Controller
             $produit = new produit;
             $produit->nom = $request['nom'];
             $produit->type = $request['type'];
-            $request->file('name')->store('profile');
+            
             $produit->save();
             return view('test')->with('noms',"success");
         
@@ -37,6 +37,11 @@ class ControllerProduit extends Controller
         $produit = DB::table('produit')->get();
         
         return view('test')->with('produits',$produit);
+    }
+
+    public function validerDocument()
+    {
+        return view('home');
     }
     
 }

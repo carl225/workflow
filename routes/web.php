@@ -22,3 +22,4 @@ Route::get('/test', [App\Http\Controllers\ControllerProduit::class, 'getProduit'
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/produit',[App\Http\Controllers\ControllerProduit::class, 'ajouter']);
 Route::post('ajouterProduit',[App\Http\Controllers\ControllerProduit::class, 'ajouterProduit']);
+Route::get('validerdoc',[App\Http\Controllers\ControllerProduit::class, 'validerDocument']);

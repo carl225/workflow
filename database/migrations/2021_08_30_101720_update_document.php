@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Produit extends Migration
+class UpdateDocument extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class Produit extends Migration
      */
     public function up()
     {
-        Schema::create('produit', function (Blueprint $table) {
-
-            $table->increments('id');    //Predefined ID
-            $table->file('nom');      //nom
-            $table->string('type');      //type
-           
-            $table->timestamps();        //Predefined Timestamps
-
+        Schema::table('produit', function (Blueprint $table) {
+            $table->integer('valide')->default('0')->after('type');  
+            
         });
     }
 
