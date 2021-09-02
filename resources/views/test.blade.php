@@ -18,13 +18,17 @@
                         <tbody>
                         @foreach ($produits as $key => $data)
                             <tr>
-                           
-                                <th> {{  $data->nom }}</th>
-                                <th>{{  $data->type }}</th>
+                            <form method="POST" action="{{ url('validerdoc') }}">
+                            @csrf
+                                <th name="{{$data->id}}"> {{  $data->nom }}</th>
+                                <th >{{  $data->type }}</th>
                                 
                                 <th><button class="btn btn-secondary"> voir </button></th>
-                                <th><button onclick="location.href='{{url('validerdoc')}}'"  class="btn btn-secondary">valider</button></th>
-                           
+                                <th> 
+                                <button type="submit" class="btn btn-secondary">Valider</button>
+                            
+                                </th>
+                            </form> 
                             </tr>
                            
                         @endforeach

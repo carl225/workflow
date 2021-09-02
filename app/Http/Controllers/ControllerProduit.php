@@ -39,9 +39,13 @@ class ControllerProduit extends Controller
         return view('test')->with('produits',$produit);
     }
 
-    public function validerDocument()
-    {
-        return view('home');
+    public function validerDocument(Request $request, produit $produit)
+    {   
+        $request->all(); 
+        $produit = new produit;
+        $produit->nom = $request['nom'];
+        $produit->type = $request['type'];
+        return view('test')->with('produits',$produit);
     }
     
 }
