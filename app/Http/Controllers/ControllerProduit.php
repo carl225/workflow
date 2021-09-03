@@ -31,12 +31,20 @@ class ControllerProduit extends Controller
             $produit->save();
             return view('test')->with('noms',"success");
         
-    } 
+    }
+    
     public function getProduit()
     {
         $produit = DB::table('produit')->get();
         
         return view('test')->with('produits',$produit);
+    }
+     
+    public function getUser()
+    {
+        $users = DB::table('users')->get();
+        
+        return view('droit')->with('users',$users);
     }
 
     public function validerDocument(Request $request, produit $produit)
