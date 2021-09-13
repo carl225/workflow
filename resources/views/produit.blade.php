@@ -39,7 +39,18 @@
                             </div>
                         </div>
 
-                       
+                        <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Pour ') }}</label>
+                            
+                            <div class="col-md-6">
+                                <select name="profile" id="profile">
+                                @foreach ($produits as $key => $data)
+                                    <option value="{{$data}}">{{$data}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                           
+                        </div>
 
 
                         <div class="form-group row mb-0">

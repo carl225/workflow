@@ -16,15 +16,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach ($produits as $key => $data)
+                        @foreach ($produits as $produit)
+                           
                             <tr>
-                            <form method="POST" action="{{ url('validerdoc') }}">
+                            <form method="POST" action="{{ url('validerdoc/'.$produit->id) }}">
                             @csrf
-                                <th name="{{$data->id}}"> {{  $data->nom }}</th>
-                                <th >{{  $data->type }}</th>
+                            <th > </th>
+                                <th > {{  $produit->nom }}</th>
+                                <th >{{  $produit->type }}</th>
                                 
-                                <th><button class="btn btn-secondary"> voir </button></th>
+                                <th>
+                                    @can('view',$produit)
+                                    <button class="btn btn-secondary"> voir </button>
+                                    @endcan
+                                   
+                                </th>
                                 <th> 
+                                    
                                 <button type="submit" class="btn btn-secondary">Valider</button>
                             
                                 </th>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Produit;
+use App\Models\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; 
@@ -16,7 +17,8 @@ class ControllerProduit extends Controller
     }
     public function ajouter()
     {
-        return view('produit');
+        $produit = ['user','comptable','commercial','directeur','admin'];
+        return view('produit')->with('produits',$produit);
     }
     public function ajouterProduit(Request $request, produit $produit)
     {   
@@ -27,7 +29,8 @@ class ControllerProduit extends Controller
             $produit = new produit;
             $produit->nom = $request['nom'];
             $produit->type = $request['type'];
-            
+            $produit->profile = $request['profile'];
+
             $produit->save();
             return view('test')->with('noms',"success");
         
@@ -35,6 +38,7 @@ class ControllerProduit extends Controller
     
     public function getProduit()
     {
+        
         $produit = DB::table('produit')->get();
         
         return view('test')->with('produits',$produit);
@@ -47,13 +51,10 @@ class ControllerProduit extends Controller
         return view('droit')->with('users',$users);
     }
 
-    public function validerDocument(Request $request, produit $produit)
+    public static function validerDocument( $produit)
     {   
-        $request->all(); 
-        $produit = new produit;
-        $produit->nom = $request['nom'];
-        $produit->type = $request['type'];
-        return view('test')->with('produits',$produit);
+        $doc = DB::table('produit')->where('id',$produit)->update(['valide'=>'1']);
+        return view('valider')->with('produits',$doc);
     }
     
 }
