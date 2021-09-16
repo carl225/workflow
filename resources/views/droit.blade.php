@@ -26,19 +26,19 @@
                                 <th>
                                   
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="add" value="option1">
                                         <label class="form-check-label" for="inlineCheckbox1">Ajout</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="sup" value="option2">
                                         <label class="form-check-label" for="inlineCheckbox2">Suppression</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" >
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="val" value="option3" >
                                         <label class="form-check-label" for="inlineCheckbox3">Valider</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" >
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="del" value="option3" >
                                         <label class="form-check-label" for="inlineCheckbox3">voir</label>
                                     </div>
                                 </th>

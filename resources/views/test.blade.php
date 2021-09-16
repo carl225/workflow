@@ -37,6 +37,11 @@
                         <td>
                             <button class="btn btn-danger"> Supprimer </button>  
                         </td>                             
+                        
+                        @else
+                        <td>
+                            <button class="btn btn-info"> Demander</button>  
+                        </td>
                         @endif
                         </tr>
                     </form> 
