@@ -26,13 +26,14 @@ class ControllerProduit extends Controller
             $request->all(); 
             
             
-            $produit = new produit;
-            $produit->nom = $request['nom'];
-            $produit->type = $request['type'];
-            $produit->profile = $request['profile'];
+            $doc = new produit;
+            $doc->nom = $request['nom'];
+            $doc->type = $request['type'];
+            $doc->profile = $request['profile'];
 
-            $produit->save();
-            return view('test')->with('noms',"success");
+            $doc->save();
+            $produit = DB::table('produit')->get();
+            return view('test')->with('produits',$produit);
         
     }
     
